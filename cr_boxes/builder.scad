@@ -10,7 +10,7 @@ filter_z = 406;
 filter_y = 25;
 fan_z = 27;
 num_fans = 4;
-fan_size = 140;
+fan_size = 120;
 depth = 10;
 
 function filter_dim() = [filter_x, filter_y, filter_z];
@@ -23,7 +23,7 @@ function get_fan_holder_x() = get_spacing_x() * 2 + get_fan_size();
 function num_fans_to_fit(dim) = floor(dim / get_fan_holder_x());
 function get_corner_z() = (filter_z + 2 * depth - 2 * (get_spacing_x() * 2 + get_fan_size())) / 2;;
 
-module local_fan(z_offset="None", size=140, z=27, _color=[1,1,1]) {
+module local_fan(z_offset="None", size=fan_size, z=27, _color=[1,1,1]) {
   _z_offset = z_offset == "None" ? filter_z : 0;
 
   translate([0,0, filter_z]) {
